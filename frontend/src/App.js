@@ -9,7 +9,9 @@ const App = () => {
   const [expenses, setExpenses] = useState([]);
 
   const fetchExpenses = async () => {
-    const response = await axios.get("http://localhost:5000/api/expenses");
+    const response = await axios.get(
+      process.env.REACT_APP_API_URL || "http://localhost:5000/api/expenses"
+    );
     setExpenses(response.data);
   };
 
